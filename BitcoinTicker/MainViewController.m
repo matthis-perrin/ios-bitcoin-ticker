@@ -9,6 +9,8 @@
 #import "MainViewController.h"
 #import "ExchangeUIViewController.h"
 #import "Bitstamp.h"
+#import "Buttercoin.h"
+#import "Coinbase.h"
 
 @interface MainViewController ()
 
@@ -17,6 +19,8 @@
 @implementation MainViewController
 {
     Bitstamp *bitstamp;
+    Buttercoin *buttercoin;
+    Coinbase *coinbase;
 }
 
 - (void)viewDidLoad
@@ -47,10 +51,21 @@
     
     [self.view addSubview:scrollView];
     
-    bitstamp = [[Bitstamp alloc] init];
-    [bitstamp runWithBlock:^(Ticker *ticker) {
-        NSLog(@"%@ : %@ - %@", ticker.date, ticker.bid, ticker.ask);
+//    bitstamp = [[Bitstamp alloc] init];
+//    [bitstamp runWithBlock:^(Ticker *ticker) {
+//        NSLog(@"Bitstamp %@ : %f - %f", ticker.date, ticker.bid, ticker.ask);
+//    }];
+//    
+//    buttercoin = [[Buttercoin alloc] init];
+//    [buttercoin runWithBlock:^(Ticker *ticker) {
+//        NSLog(@"Buttercoin %@ : %f - %f", ticker.date, ticker.bid, ticker.ask);
+//    }];
+    
+    coinbase = [[Coinbase alloc] init];
+    [coinbase runWithBlock:^(Ticker *ticker) {
+        NSLog(@"Coinbase %@ : %f - %f", ticker.date, ticker.bid, ticker.ask);
     }];
+
 }
 
 - (void)didReceiveMemoryWarning

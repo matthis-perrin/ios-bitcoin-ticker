@@ -7,7 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <SocketRocket/SRWebSocket.h>
+#import "Ticker.h"
 
-@interface Buttercoin : NSObject
+@interface Buttercoin : NSObject <SRWebSocketDelegate>
+
+- (void)runWithBlock:(void (^)(Ticker *))block;
 
 @end

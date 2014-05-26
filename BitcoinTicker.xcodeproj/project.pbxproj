@@ -30,6 +30,7 @@
 		B512B8801932F48E00ACDD2F /* Bitstamp.m in Sources */ = {isa = PBXBuildFile; fileRef = B512B87F1932F48E00ACDD2F /* Bitstamp.m */; };
 		B54FB3FD1932F67B0052FEF2 /* Ticker.m in Sources */ = {isa = PBXBuildFile; fileRef = B54FB3FC1932F67B0052FEF2 /* Ticker.m */; };
 		B54FB4001932FE550052FEF2 /* Buttercoin.m in Sources */ = {isa = PBXBuildFile; fileRef = B54FB3FF1932FE550052FEF2 /* Buttercoin.m */; };
+		B54FB406193312E70052FEF2 /* Coinbase.m in Sources */ = {isa = PBXBuildFile; fileRef = B54FB405193312E70052FEF2 /* Coinbase.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,8 @@
 		B54FB3FC1932F67B0052FEF2 /* Ticker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ticker.m; sourceTree = "<group>"; };
 		B54FB3FE1932FE550052FEF2 /* Buttercoin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Buttercoin.h; sourceTree = "<group>"; };
 		B54FB3FF1932FE550052FEF2 /* Buttercoin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Buttercoin.m; sourceTree = "<group>"; };
+		B54FB404193312E70052FEF2 /* Coinbase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Coinbase.h; sourceTree = "<group>"; };
+		B54FB405193312E70052FEF2 /* Coinbase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Coinbase.m; sourceTree = "<group>"; };
 		DFDE52C150BD4636992DD1AF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -150,12 +153,14 @@
 				2DA0307A1932F4B90023F67F /* Exchange.m */,
 				2DA030711932DE730023F67F /* Resources */,
 				2D3CCF5F1932C7BA007CD5EC /* Supporting Files */,
-				B512B87E1932F48E00ACDD2F /* Bitstamp.h */,
-				B512B87F1932F48E00ACDD2F /* Bitstamp.m */,
 				B54FB3FB1932F67B0052FEF2 /* Ticker.h */,
 				B54FB3FC1932F67B0052FEF2 /* Ticker.m */,
+				B512B87E1932F48E00ACDD2F /* Bitstamp.h */,
+				B512B87F1932F48E00ACDD2F /* Bitstamp.m */,
 				B54FB3FE1932FE550052FEF2 /* Buttercoin.h */,
 				B54FB3FF1932FE550052FEF2 /* Buttercoin.m */,
+				B54FB404193312E70052FEF2 /* Coinbase.h */,
+				B54FB405193312E70052FEF2 /* Coinbase.m */,
 			);
 			path = BitcoinTicker;
 			sourceTree = "<group>";
@@ -345,6 +350,7 @@
 			files = (
 				2D3CCF6F1932C7BA007CD5EC /* MainViewController.m in Sources */,
 				2DA0307B1932F4B90023F67F /* Exchange.m in Sources */,
+				B54FB406193312E70052FEF2 /* Coinbase.m in Sources */,
 				B54FB3FD1932F67B0052FEF2 /* Ticker.m in Sources */,
 				B512B8801932F48E00ACDD2F /* Bitstamp.m in Sources */,
 				2DA0306F1932D5E20023F67F /* ExchangeUIViewController.m in Sources */,

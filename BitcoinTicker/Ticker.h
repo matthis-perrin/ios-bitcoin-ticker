@@ -11,8 +11,8 @@
 @interface Ticker : NSObject
 
 @property NSDate *date;
-@property NSString *bid;
-@property NSString *ask;
+@property float bid;
+@property float ask;
 
 - (id)initWithDate:(NSDate *)date withBid:(NSString *)bid withAsk:(NSString *)ask;
 

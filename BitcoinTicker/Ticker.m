@@ -14,8 +14,8 @@
 {
     if (self = [super init]) {
         self.date = date;
-        self.bid = bid;
-        self.ask = ask;
+        self.bid = bid.floatValue;
+        self.ask = ask.floatValue;
     }
     return self;
 }

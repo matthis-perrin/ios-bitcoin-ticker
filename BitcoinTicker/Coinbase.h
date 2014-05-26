@@ -1,5 +1,5 @@
 //
-//  Bitstamp.h
+//  Coinbase.h
 //  BitcoinTicker
 //
 //  Created by Ben on 5/25/14.
@@ -7,12 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <Pusher/Pusher.h>
 #import "Ticker.h"
 
-@interface Bitstamp : NSObject <PTPusherDelegate>
-
-@property (nonatomic, retain) PTPusher *client;
+@interface Coinbase : NSObject
 
 - (void)runWithBlock:(void (^)(Ticker *))block;
 
