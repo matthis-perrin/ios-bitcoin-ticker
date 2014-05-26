@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <Pusher/Pusher.h>
+#import <Pusher.h>
 #import "Ticker.h"
 
 @interface Bitstamp : NSObject <PTPusherDelegate>

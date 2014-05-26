@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <SocketRocket/SRWebSocket.h>
+#import <SRWebSocket.h>
 #import "Ticker.h"
 
 @interface Buttercoin : NSObject <SRWebSocketDelegate>

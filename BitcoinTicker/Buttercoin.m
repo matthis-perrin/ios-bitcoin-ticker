@@ -32,8 +32,8 @@
         request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
         [request setValue:origin forHTTPHeaderField:@"Origin"];
         
-        frequency = 2;
-        timeout = 5;
+        frequency = 10;
+        timeout = 30;
         tickerMsg = @"{\"query\":\"TICKER\",\"currencies\":[\"USD\",\"BTC\"]}";
     }
     return self;
