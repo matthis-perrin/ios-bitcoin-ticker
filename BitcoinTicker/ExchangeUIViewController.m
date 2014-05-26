@@ -10,23 +10,22 @@
 
 @interface ExchangeUIViewController ()
 
-@property UIImageView* tileView;
-@property UIImageView* imageView;
-@property UILabel* bidLabel;
-
 @end
+
 
 @implementation ExchangeUIViewController
 
 @synthesize tileView;
 @synthesize imageView;
-@synthesize bidLabel;
+@synthesize priceLabel;
 
-- (id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+@synthesize exchange;
+
+- (id) initWithExchange:(Exchange*)_exchange
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super init];
     if (self) {
-        // Custom initialization
+        exchange = _exchange;
     }
     return self;
 }
@@ -38,21 +37,25 @@
     tileView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tile.png"]];
     tileView.contentMode = UIViewContentModeCenter;
     
-    imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bitstamp.png"]];
+    imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:exchange.imageName]];
     imageView.contentMode = UIViewContentModeCenter;
     
-    bidLabel = [[UILabel alloc] init];
-    bidLabel.text = @"585.40 / 579.92";
-    bidLabel.center = self.view.center;
-    bidLabel.textColor = [UIColor colorWithWhite:102.0f/255.0f alpha:1.0f];
-    bidLabel.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:35.0f];
-    bidLabel.textAlignment = NSTextAlignmentCenter;
+    priceLabel = [[UILabel alloc] init];
+    priceLabel.text = @"Loading...";
+    priceLabel.center = self.view.center;
+    priceLabel.textColor = [UIColor colorWithWhite:102.0f/255.0f alpha:1.0f];
+    priceLabel.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:35.0f];
+    priceLabel.textAlignment = NSTextAlignmentCenter;
     
     [self.view addSubview:tileView];
     [self.view addSubview:imageView];
-    [self.view addSubview:bidLabel];
+    [self.view addSubview:priceLabel];
     
     [self updateConstraints];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self updateWithBid:579.05 Ask:581.16];
+    });
 }
 
 - (void) updateConstraints
@@ -67,15 +70,16 @@
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1 constant:20.0f]];
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1 constant:0.0f]];
     
-    bidLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:bidLabel attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1 constant:-30.0f]];
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:bidLabel attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1 constant:0.0f]];
+    priceLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:priceLabel attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1 constant:-30.0f]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:priceLabel attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1 constant:0.0f]];
 }
 
-- (void) didReceiveMemoryWarning
+- (void) updateWithBid:(float)bid Ask:(float)ask
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    NSString* bidString = [NSString stringWithFormat:@"%.2f", bid];
+    NSString* askString = [NSString stringWithFormat:@"%.2f", ask];
+    [priceLabel setText:[NSString stringWithFormat:@"%@ / %@", bidString, askString]];
 }
 
 @end
