@@ -1,10 +1,15 @@
 PODS:
-  - PocketSocket (0.6.1)
+  - libPusher (1.5):
+    - libPusher/Core
+  - libPusher/Core (1.5):
+    - SocketRocket (= 0.3.1-beta2)
+  - SocketRocket (0.3.1-beta2)
 
 DEPENDENCIES:
-  - PocketSocket (~> 0.6.1)
+  - libPusher (= 1.5)
 
 SPEC CHECKSUMS:
-  PocketSocket: d7aae634f10202fd7e5453a54db53d9a1de2c684
+  libPusher: 583326327a72ab7cd0f38692f61f9061cf4be3d9
+  SocketRocket: 79a68ae186063c65e1fe6f638b1ae2927aa5f304
 
 COCOAPODS: 0.33.1

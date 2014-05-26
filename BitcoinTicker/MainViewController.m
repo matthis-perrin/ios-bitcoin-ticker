@@ -8,12 +8,16 @@
 
 #import "MainViewController.h"
 #import "ExchangeUIViewController.h"
+#import "Bitstamp.h"
 
 @interface MainViewController ()
 
 @end
 
 @implementation MainViewController
+{
+    Bitstamp *bitstamp;
+}
 
 - (void)viewDidLoad
 {
@@ -42,6 +46,11 @@
     scrollView.contentSize = CGSizeMake(width, start + exchangeArray.count * height + margin);
     
     [self.view addSubview:scrollView];
+    
+    bitstamp = [[Bitstamp alloc] init];
+    [bitstamp runWithBlock:^(Ticker *ticker) {
+        NSLog(@"%@ : %@ - %@", ticker.date, ticker.bid, ticker.ask);
+    }];
 }
 
 - (void)didReceiveMemoryWarning

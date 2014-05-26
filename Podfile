@@ -1,2 +1,3 @@
 platform :ios, '7.1'
-pod 'PocketSocket', '~> 0.6.1'
+inhibit_all_warnings!
+pod 'libPusher', '1.5'
