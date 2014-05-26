@@ -1,0 +1,10 @@
+PODS:
+  - PocketSocket (0.6.1)
+
+DEPENDENCIES:
+  - PocketSocket (~> 0.6.1)
+
+SPEC CHECKSUMS:
+  PocketSocket: d7aae634f10202fd7e5453a54db53d9a1de2c684
+
+COCOAPODS: 0.33.1
