@@ -17,15 +17,16 @@
     NSString *lastBid;
     NSString *lastAsk;
     
-    void (^userBlock)(Ticker *);
+    void (^userBlock)(Ticker *);\
 }
 
-- (id)init
+- (id) initWithBlock:(void (^)(Ticker *))block;
 {
     if (self = [super init]) {
         buyRequest = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"https://coinbase.com/api/v1/prices/buy"]];
         sellRequest = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"https://coinbase.com/api/v1/prices/sell"]];
-        frequency = 2;
+        frequency = 1;
+        [self runWithBlock:block];
     }
     return self;
 }
@@ -33,7 +34,8 @@
 - (void)runWithBlock:(void (^)(Ticker *))block
 {
     userBlock = block;
-    [NSTimer scheduledTimerWithTimeInterval:frequency target:self selector:@selector(requestTicker) userInfo:nil repeats:YES];
+    
+    [self requestTicker];
 }
 
 - (void)requestTicker
@@ -45,6 +47,11 @@
         lastAsk = ask;
         userBlock([[Ticker alloc] initWithDate:[NSDate date] withBid:bid withAsk:ask]);
     }
+    
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
+    dispatch_async(queue, ^{
+        [self performSelector:@selector(requestTicker) withObject:nil afterDelay:frequency];
+    });
 }
 
 - (NSString *)httpRequest:(NSURLRequest *)request
@@ -53,13 +60,10 @@
     NSHTTPURLResponse* responseCode = nil;
     
     NSData* oResponseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&responseCode error:&error];
-    
     if ([responseCode statusCode] != 200) {
         return nil;
     }
-    
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:oResponseData options:0 error:nil];
-
     return [[json objectForKey:@"subtotal"] objectForKey:@"amount"];
 }
 

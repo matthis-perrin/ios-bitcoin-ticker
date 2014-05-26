@@ -7,6 +7,7 @@
 //
 
 #import "ExchangeUIViewController.h"
+#import "ExchangeManager.h"
 
 @interface ExchangeUIViewController ()
 
@@ -53,8 +54,10 @@
     
     [self updateConstraints];
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self updateWithBid:579.05 Ask:581.16];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [ExchangeManager startExchange:exchange.type block:^(Ticker* ticker) {
+            [self updateWithTicker:ticker];
+        }];
     });
 }
 
@@ -75,10 +78,15 @@
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:priceLabel attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1 constant:0.0f]];
 }
 
-- (void) updateWithBid:(float)bid Ask:(float)ask
+- (void) updateWithTicker:(Ticker*)ticker
 {
-    NSString* bidString = [NSString stringWithFormat:@"%.2f", bid];
-    NSString* askString = [NSString stringWithFormat:@"%.2f", ask];
+    [self performSelectorOnMainThread:@selector(updateUIWithTicker:) withObject:ticker waitUntilDone:NO];
+}
+
+- (void) updateUIWithTicker:(Ticker*)ticker
+{
+    NSString* bidString = [NSString stringWithFormat:@"%.2f", ticker.bid];
+    NSString* askString = [NSString stringWithFormat:@"%.2f", ticker.ask];
     [priceLabel setText:[NSString stringWithFormat:@"%@ / %@", bidString, askString]];
 }
 

@@ -26,6 +26,7 @@
 		2DA030781932F4840023F67F /* buttercoin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DA030771932F4840023F67F /* buttercoin@2x.png */; };
 		2DA0307B1932F4B90023F67F /* Exchange.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA0307A1932F4B90023F67F /* Exchange.m */; };
 		2DA0307D19330CCB0023F67F /* coinbase@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DA0307C19330CCB0023F67F /* coinbase@2x.png */; };
+		2DA0308219333B910023F67F /* ExchangeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA0308119333B910023F67F /* ExchangeManager.m */; };
 		466EDDD9A55C4041897D7FB8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DFDE52C150BD4636992DD1AF /* libPods.a */; };
 		B512B8801932F48E00ACDD2F /* Bitstamp.m in Sources */ = {isa = PBXBuildFile; fileRef = B512B87F1932F48E00ACDD2F /* Bitstamp.m */; };
 		B54FB3FD1932F67B0052FEF2 /* Ticker.m in Sources */ = {isa = PBXBuildFile; fileRef = B54FB3FC1932F67B0052FEF2 /* Ticker.m */; };
@@ -44,22 +45,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2D3CCF551932C7BA007CD5EC /* BitcoinTicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BitcoinTicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D3CCF551932C7BA007CD5EC /* Bitcoin Ticker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bitcoin Ticker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D3CCF581932C7BA007CD5EC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2D3CCF5A1932C7BA007CD5EC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		2D3CCF5C1932C7BA007CD5EC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2D3CCF601932C7BA007CD5EC /* BitcoinTicker-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BitcoinTicker-Info.plist"; sourceTree = "<group>"; };
 		2D3CCF621932C7BA007CD5EC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2D3CCF641932C7BA007CD5EC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		2D3CCF661932C7BA007CD5EC /* BitcoinTicker-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BitcoinTicker-Prefix.pch"; sourceTree = "<group>"; };
+		2D3CCF661932C7BA007CD5EC /* Bitcoin Ticker-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bitcoin Ticker-Prefix.pch"; sourceTree = "<group>"; };
 		2D3CCF671932C7BA007CD5EC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2D3CCF681932C7BA007CD5EC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		2D3CCF6D1932C7BA007CD5EC /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		2D3CCF6E1932C7BA007CD5EC /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		2D3CCF701932C7BA007CD5EC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		2D3CCF761932C7BA007CD5EC /* BitcoinTickerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BitcoinTickerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D3CCF761932C7BA007CD5EC /* Bitcoin TickerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Bitcoin TickerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D3CCF771932C7BA007CD5EC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		2D3CCF7F1932C7BB007CD5EC /* BitcoinTickerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BitcoinTickerTests-Info.plist"; sourceTree = "<group>"; };
+		2D3CCF7F1932C7BB007CD5EC /* Bitcoin TickerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Bitcoin TickerTests-Info.plist"; sourceTree = "<group>"; };
 		2D3CCF811932C7BB007CD5EC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2D3CCF831932C7BB007CD5EC /* BitcoinTickerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BitcoinTickerTests.m; sourceTree = "<group>"; };
 		2DA0306D1932D5E20023F67F /* ExchangeUIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExchangeUIViewController.h; sourceTree = "<group>"; };
@@ -70,6 +71,8 @@
 		2DA030791932F4B90023F67F /* Exchange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exchange.h; sourceTree = "<group>"; };
 		2DA0307A1932F4B90023F67F /* Exchange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Exchange.m; sourceTree = "<group>"; };
 		2DA0307C19330CCB0023F67F /* coinbase@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coinbase@2x.png"; sourceTree = "<group>"; };
+		2DA0308019333B910023F67F /* ExchangeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExchangeManager.h; sourceTree = "<group>"; };
+		2DA0308119333B910023F67F /* ExchangeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExchangeManager.m; sourceTree = "<group>"; };
 		5BC48E720F4E4E6E82EFDDBB /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		B512B87E1932F48E00ACDD2F /* Bitstamp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bitstamp.h; sourceTree = "<group>"; };
 		B512B87F1932F48E00ACDD2F /* Bitstamp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bitstamp.m; sourceTree = "<group>"; };
@@ -121,8 +124,8 @@
 		2D3CCF561932C7BA007CD5EC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2D3CCF551932C7BA007CD5EC /* BitcoinTicker.app */,
-				2D3CCF761932C7BA007CD5EC /* BitcoinTickerTests.xctest */,
+				2D3CCF551932C7BA007CD5EC /* Bitcoin Ticker.app */,
+				2D3CCF761932C7BA007CD5EC /* Bitcoin TickerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -142,25 +145,11 @@
 		2D3CCF5E1932C7BA007CD5EC /* BitcoinTicker */ = {
 			isa = PBXGroup;
 			children = (
-				2D3CCF671932C7BA007CD5EC /* AppDelegate.h */,
-				2D3CCF681932C7BA007CD5EC /* AppDelegate.m */,
-				2D3CCF6D1932C7BA007CD5EC /* MainViewController.h */,
-				2D3CCF6E1932C7BA007CD5EC /* MainViewController.m */,
+				2DA0307F19333AE10023F67F /* Back */,
+				2DA0307E19333AC90023F67F /* Front */,
 				2D3CCF701932C7BA007CD5EC /* Images.xcassets */,
-				2DA0306D1932D5E20023F67F /* ExchangeUIViewController.h */,
-				2DA0306E1932D5E20023F67F /* ExchangeUIViewController.m */,
-				2DA030791932F4B90023F67F /* Exchange.h */,
-				2DA0307A1932F4B90023F67F /* Exchange.m */,
 				2DA030711932DE730023F67F /* Resources */,
 				2D3CCF5F1932C7BA007CD5EC /* Supporting Files */,
-				B54FB3FB1932F67B0052FEF2 /* Ticker.h */,
-				B54FB3FC1932F67B0052FEF2 /* Ticker.m */,
-				B512B87E1932F48E00ACDD2F /* Bitstamp.h */,
-				B512B87F1932F48E00ACDD2F /* Bitstamp.m */,
-				B54FB3FE1932FE550052FEF2 /* Buttercoin.h */,
-				B54FB3FF1932FE550052FEF2 /* Buttercoin.m */,
-				B54FB404193312E70052FEF2 /* Coinbase.h */,
-				B54FB405193312E70052FEF2 /* Coinbase.m */,
 			);
 			path = BitcoinTicker;
 			sourceTree = "<group>";
@@ -171,7 +160,7 @@
 				2D3CCF601932C7BA007CD5EC /* BitcoinTicker-Info.plist */,
 				2D3CCF611932C7BA007CD5EC /* InfoPlist.strings */,
 				2D3CCF641932C7BA007CD5EC /* main.m */,
-				2D3CCF661932C7BA007CD5EC /* BitcoinTicker-Prefix.pch */,
+				2D3CCF661932C7BA007CD5EC /* Bitcoin Ticker-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -188,7 +177,7 @@
 		2D3CCF7E1932C7BB007CD5EC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				2D3CCF7F1932C7BB007CD5EC /* BitcoinTickerTests-Info.plist */,
+				2D3CCF7F1932C7BB007CD5EC /* Bitcoin TickerTests-Info.plist */,
 				2D3CCF801932C7BB007CD5EC /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -213,12 +202,44 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
+		2DA0307E19333AC90023F67F /* Front */ = {
+			isa = PBXGroup;
+			children = (
+				2D3CCF671932C7BA007CD5EC /* AppDelegate.h */,
+				2D3CCF681932C7BA007CD5EC /* AppDelegate.m */,
+				2D3CCF6D1932C7BA007CD5EC /* MainViewController.h */,
+				2D3CCF6E1932C7BA007CD5EC /* MainViewController.m */,
+				2DA0306D1932D5E20023F67F /* ExchangeUIViewController.h */,
+				2DA0306E1932D5E20023F67F /* ExchangeUIViewController.m */,
+				2DA030791932F4B90023F67F /* Exchange.h */,
+				2DA0307A1932F4B90023F67F /* Exchange.m */,
+			);
+			name = Front;
+			sourceTree = "<group>";
+		};
+		2DA0307F19333AE10023F67F /* Back */ = {
+			isa = PBXGroup;
+			children = (
+				B54FB3FB1932F67B0052FEF2 /* Ticker.h */,
+				B54FB3FC1932F67B0052FEF2 /* Ticker.m */,
+				B512B87E1932F48E00ACDD2F /* Bitstamp.h */,
+				B512B87F1932F48E00ACDD2F /* Bitstamp.m */,
+				B54FB3FE1932FE550052FEF2 /* Buttercoin.h */,
+				B54FB3FF1932FE550052FEF2 /* Buttercoin.m */,
+				B54FB404193312E70052FEF2 /* Coinbase.h */,
+				B54FB405193312E70052FEF2 /* Coinbase.m */,
+				2DA0308019333B910023F67F /* ExchangeManager.h */,
+				2DA0308119333B910023F67F /* ExchangeManager.m */,
+			);
+			name = Back;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2D3CCF541932C7BA007CD5EC /* BitcoinTicker */ = {
+		2D3CCF541932C7BA007CD5EC /* Bitcoin Ticker */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D3CCF871932C7BB007CD5EC /* Build configuration list for PBXNativeTarget "BitcoinTicker" */;
+			buildConfigurationList = 2D3CCF871932C7BB007CD5EC /* Build configuration list for PBXNativeTarget "Bitcoin Ticker" */;
 			buildPhases = (
 				FD750E172519491A88954FB0 /* Check Pods Manifest.lock */,
 				2D3CCF511932C7BA007CD5EC /* Sources */,
@@ -230,14 +251,14 @@
 			);
 			dependencies = (
 			);
-			name = BitcoinTicker;
+			name = "Bitcoin Ticker";
 			productName = BitcoinTicker;
-			productReference = 2D3CCF551932C7BA007CD5EC /* BitcoinTicker.app */;
+			productReference = 2D3CCF551932C7BA007CD5EC /* Bitcoin Ticker.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2D3CCF751932C7BA007CD5EC /* BitcoinTickerTests */ = {
+		2D3CCF751932C7BA007CD5EC /* Bitcoin TickerTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D3CCF8A1932C7BB007CD5EC /* Build configuration list for PBXNativeTarget "BitcoinTickerTests" */;
+			buildConfigurationList = 2D3CCF8A1932C7BB007CD5EC /* Build configuration list for PBXNativeTarget "Bitcoin TickerTests" */;
 			buildPhases = (
 				2D3CCF721932C7BA007CD5EC /* Sources */,
 				2D3CCF731932C7BA007CD5EC /* Frameworks */,
@@ -248,9 +269,9 @@
 			dependencies = (
 				2D3CCF7C1932C7BB007CD5EC /* PBXTargetDependency */,
 			);
-			name = BitcoinTickerTests;
+			name = "Bitcoin TickerTests";
 			productName = BitcoinTickerTests;
-			productReference = 2D3CCF761932C7BA007CD5EC /* BitcoinTickerTests.xctest */;
+			productReference = 2D3CCF761932C7BA007CD5EC /* Bitcoin TickerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -267,7 +288,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 2D3CCF501932C7BA007CD5EC /* Build configuration list for PBXProject "BitcoinTicker" */;
+			buildConfigurationList = 2D3CCF501932C7BA007CD5EC /* Build configuration list for PBXProject "Bitcoin Ticker" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -280,8 +301,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2D3CCF541932C7BA007CD5EC /* BitcoinTicker */,
-				2D3CCF751932C7BA007CD5EC /* BitcoinTickerTests */,
+				2D3CCF541932C7BA007CD5EC /* Bitcoin Ticker */,
+				2D3CCF751932C7BA007CD5EC /* Bitcoin TickerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -354,6 +375,7 @@
 				B54FB3FD1932F67B0052FEF2 /* Ticker.m in Sources */,
 				B512B8801932F48E00ACDD2F /* Bitstamp.m in Sources */,
 				2DA0306F1932D5E20023F67F /* ExchangeUIViewController.m in Sources */,
+				2DA0308219333B910023F67F /* ExchangeManager.m in Sources */,
 				B54FB4001932FE550052FEF2 /* Buttercoin.m in Sources */,
 				2D3CCF691932C7BA007CD5EC /* AppDelegate.m in Sources */,
 				2D3CCF651932C7BA007CD5EC /* main.m in Sources */,
@@ -373,7 +395,7 @@
 /* Begin PBXTargetDependency section */
 		2D3CCF7C1932C7BB007CD5EC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2D3CCF541932C7BA007CD5EC /* BitcoinTicker */;
+			target = 2D3CCF541932C7BA007CD5EC /* Bitcoin Ticker */;
 			targetProxy = 2D3CCF7B1932C7BB007CD5EC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -475,9 +497,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "BitcoinTicker/BitcoinTicker-Prefix.pch";
+				GCC_PREFIX_HEADER = "BitcoinTicker/Bitcoin Ticker-Prefix.pch";
 				INFOPLIST_FILE = "BitcoinTicker/BitcoinTicker-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Bitcoin Ticker";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -489,9 +511,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "BitcoinTicker/BitcoinTicker-Prefix.pch";
+				GCC_PREFIX_HEADER = "BitcoinTicker/Bitcoin Ticker-Prefix.pch";
 				INFOPLIST_FILE = "BitcoinTicker/BitcoinTicker-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Bitcoin Ticker";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -511,8 +533,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "BitcoinTickerTests/BitcoinTickerTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "BitcoinTickerTests/Bitcoin TickerTests-Info.plist";
+				PRODUCT_NAME = "Bitcoin TickerTests";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -529,8 +551,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BitcoinTicker/BitcoinTicker-Prefix.pch";
-				INFOPLIST_FILE = "BitcoinTickerTests/BitcoinTickerTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "BitcoinTickerTests/Bitcoin TickerTests-Info.plist";
+				PRODUCT_NAME = "Bitcoin TickerTests";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -539,7 +561,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2D3CCF501932C7BA007CD5EC /* Build configuration list for PBXProject "BitcoinTicker" */ = {
+		2D3CCF501932C7BA007CD5EC /* Build configuration list for PBXProject "Bitcoin Ticker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D3CCF851932C7BB007CD5EC /* Debug */,
@@ -548,7 +570,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D3CCF871932C7BB007CD5EC /* Build configuration list for PBXNativeTarget "BitcoinTicker" */ = {
+		2D3CCF871932C7BB007CD5EC /* Build configuration list for PBXNativeTarget "Bitcoin Ticker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D3CCF881932C7BB007CD5EC /* Debug */,
@@ -557,7 +579,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D3CCF8A1932C7BB007CD5EC /* Build configuration list for PBXNativeTarget "BitcoinTickerTests" */ = {
+		2D3CCF8A1932C7BB007CD5EC /* Build configuration list for PBXNativeTarget "Bitcoin TickerTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D3CCF8B1932C7BB007CD5EC /* Debug */,

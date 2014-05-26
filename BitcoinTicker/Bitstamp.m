@@ -18,11 +18,13 @@
     NSString *lastAsk;
 }
 
-- (id)init
+- (id) initWithBlock:(void (^)(Ticker *))block;
 {
     if (self = [super init]) {
         key = @"de504dc5763aeef9ff52";
         reconnectDelay = 3;
+        
+        [self runWithBlock:block];
     }
     return self;
 }

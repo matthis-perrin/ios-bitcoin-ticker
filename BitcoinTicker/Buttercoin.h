@@ -12,6 +12,6 @@
 
 @interface Buttercoin : NSObject <SRWebSocketDelegate>
 
-- (void)runWithBlock:(void (^)(Ticker *))block;
+- (id)initWithBlock:(void (^)(Ticker *))block;
 
 @end

@@ -11,6 +11,6 @@
 
 @interface Coinbase : NSObject
 
-- (void)runWithBlock:(void (^)(Ticker *))block;
+- (id) initWithBlock:(void (^)(Ticker *))block;
 
 @end

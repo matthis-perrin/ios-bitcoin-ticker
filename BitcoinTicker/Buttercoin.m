@@ -23,7 +23,7 @@
     void (^userBlock)(Ticker *);
 }
 
-- (id)init
+- (id)initWithBlock:(void (^)(Ticker *))block;
 {
     if (self = [super init]) {
         origin = @"https://www.buttercoin.com";
@@ -35,6 +35,8 @@
         frequency = 10;
         timeout = 30;
         tickerMsg = @"{\"query\":\"TICKER\",\"currencies\":[\"USD\",\"BTC\"]}";
+        
+        [self runWithBlock:block];
     }
     return self;
 }
