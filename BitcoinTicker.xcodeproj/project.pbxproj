@@ -25,6 +25,7 @@
 		2DA030761932E9D80023F67F /* tile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DA030751932E9D80023F67F /* tile@2x.png */; };
 		2DA030781932F4840023F67F /* buttercoin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DA030771932F4840023F67F /* buttercoin@2x.png */; };
 		2DA0307B1932F4B90023F67F /* Exchange.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA0307A1932F4B90023F67F /* Exchange.m */; };
+		2DA0307D19330CCB0023F67F /* coinbase@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DA0307C19330CCB0023F67F /* coinbase@2x.png */; };
 		466EDDD9A55C4041897D7FB8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DFDE52C150BD4636992DD1AF /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +65,7 @@
 		2DA030771932F4840023F67F /* buttercoin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "buttercoin@2x.png"; sourceTree = "<group>"; };
 		2DA030791932F4B90023F67F /* Exchange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exchange.h; sourceTree = "<group>"; };
 		2DA0307A1932F4B90023F67F /* Exchange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Exchange.m; sourceTree = "<group>"; };
+		2DA0307C19330CCB0023F67F /* coinbase@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coinbase@2x.png"; sourceTree = "<group>"; };
 		5BC48E720F4E4E6E82EFDDBB /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		DFDE52C150BD4636992DD1AF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -186,6 +188,7 @@
 				2DA030751932E9D80023F67F /* tile@2x.png */,
 				2DA030771932F4840023F67F /* buttercoin@2x.png */,
 				2DA030731932DE730023F67F /* bitstamp@2x.png */,
+				2DA0307C19330CCB0023F67F /* coinbase@2x.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DA0307D19330CCB0023F67F /* coinbase@2x.png in Resources */,
 				2DA030781932F4840023F67F /* buttercoin@2x.png in Resources */,
 				2D3CCF711932C7BA007CD5EC /* Images.xcassets in Resources */,
 				2DA030741932DE730023F67F /* bitstamp@2x.png in Resources */,
