@@ -8,14 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import "Exchange.h"
+#import "Ticker.h"
 
 @interface ExchangeUIViewController : UIViewController
 
 @property UIImageView* tileView;
 @property UIImageView* imageView;
 @property UILabel* priceLabel;
+@property UILabel* timeLabel;
 
 @property Exchange* exchange;
+@property Ticker* lastTicker;
 
 - (id) initWithExchange:(Exchange*)_exchange;
 
