@@ -2,6 +2,7 @@ class WebSocketManager
 
   # Internal property
   webSocketList = []
+  pingLoopInterval = null
 
 
   # Public methods
@@ -12,11 +13,17 @@ class WebSocketManager
 
   @removeWebSocket = (ws) ->
     index = webSocketList.indexOf ws
-    webSocketList.splice index, 1 if index isnt -1
+    if index isnt -1
+      webSocketList[index].close()
+      webSocketList.splice index, 1
 
   @broadcast = (data) ->
     for ws in webSocketList
       send ws, JSON.stringify data
+
+  @start = () ->
+    clearInterval pingLoopInterval if pingLoopInterval?
+    pingLoopInterval = setInterval @broadcast, 30000, "PING"
 
 
   # Internal methods

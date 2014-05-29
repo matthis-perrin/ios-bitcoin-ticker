@@ -14,3 +14,4 @@ wsServer.on 'connection', (ws) ->
 setInterval () ->
   WebSocketManager.broadcast { data: [1, 2, "3"] }
 , 1000
+WebSocketManager.start()
