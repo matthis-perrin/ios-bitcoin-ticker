@@ -3,13 +3,18 @@ class WebSocketManager
   # Internal property
   webSocketList = []
   pingLoopInterval = null
+  exchangeManager = null
 
 
   # Public methods
+  @init = (exchManager) ->
+    exchangeManager = exchManager
+
+
   @addWebSocket = (ws) ->
     webSocketList.push ws
-    ws.on 'close', => @removeWebSocket ws
     sendWelcomeMessage ws
+    ws.on 'close', => @removeWebSocket ws
 
   @removeWebSocket = (ws) ->
     index = webSocketList.indexOf ws
@@ -35,7 +40,7 @@ class WebSocketManager
       @removeWebSocket ws
 
   sendWelcomeMessage = (ws) ->
-    send ws, 'Hello'
+    send ws, JSON.stringify exchangeManager.data if exchangeManager
 
 
 

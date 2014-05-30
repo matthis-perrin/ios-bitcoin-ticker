@@ -47,7 +47,6 @@ class Buttercoin
     handleMessage = (data) ->
       data = JSON.parse(data)
       if data.result is 'TICKER'
-        console.log '.'
         result = {
           exchange: NAME
           data:
