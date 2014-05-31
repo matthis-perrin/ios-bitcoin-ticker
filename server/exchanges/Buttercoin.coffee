@@ -5,8 +5,8 @@ WebSocket = require 'ws'
 class Buttercoin
 
   NAME = 'BUTTERCOIN'
-  INTERVAL = 10000
   CURRENCY = 'BTC'
+  INTERVAL = 10000
 
   cb = null
   ws = null
@@ -37,27 +37,27 @@ class Buttercoin
         sendMessage getTickerMessage
       , INTERVAL
 
-    sendMessage = (message) ->
-        try
-          ws.send message, (err) ->
-            restartWebSocket() if err?
-        catch
-          restartWebSocket()
+  sendMessage = (message) ->
+      try
+        ws.send message, (err) ->
+          restartWebSocket() if err?
+      catch
+        restartWebSocket()
 
-    handleMessage = (data) ->
-      data = JSON.parse(data)
-      if data.result is 'TICKER'
-        result = {
-          exchange: NAME
-          data:
-            bid: data.bid.amount
-            ask: data.ask.amount
-            time: new Date().getTime()
-        }
-        if result.data.bid != lastBid || result.data.ask != lastAsk
-          lastBid = result.data.bid
-          lastAsk = result.data.ask
-          cb result
+  handleMessage = (data) ->
+    data = JSON.parse(data)
+    if data.result is 'TICKER'
+      result = {
+        exchange: NAME
+        data:
+          bid: parseFloat(data.bid.amount)
+          ask: parseFloat(data.ask.amount)
+          time: new Date().getTime()
+      }
+      if result.data.bid isnt lastBid || result.data.ask isnt lastAsk
+        lastBid = result.data.bid
+        lastAsk = result.data.ask
+        cb NAME, {bid: lastBid, ask: lastAsk}
 
 
 module.exports = Buttercoin

@@ -10,10 +10,10 @@ class ExchangeManager
     wsManager = manager
 
 
-  @exchangeEvent = (exchangeName, values) ->
-    @data[exchangeName] = values
+  @exchangeEvent = (exchangeName, data) ->
+    @data[exchangeName] = data
     toSend = {}
-    toSend[exchangeName] = values
+    toSend[exchangeName] = @data[exchangeName]
     wsManager.broadcast toSend
 
 
