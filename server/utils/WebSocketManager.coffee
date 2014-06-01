@@ -17,12 +17,14 @@ class WebSocketManager
     webSocketList.push ws
     sendWelcomeMessage ws
     ws.on 'close', => @removeWebSocket ws
+    ws.on 'error', => @removeWebSocket ws
     logInfo()
 
   @removeWebSocket = (ws) ->
     index = webSocketList.indexOf ws
     if index isnt -1
-      webSocketList[index].close()
+      try
+        webSocketList[index].close()
       webSocketList.splice index, 1
       logInfo()
 

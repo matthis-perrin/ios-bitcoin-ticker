@@ -36,6 +36,7 @@ class Coinbase
           lastBid = bid if bid?
           lastAsk = ask if ask?
           cb NAME, {bid: lastBid, ask: lastAsk}
+    .on 'error', -> console.log 'Coinbase error'
 
 
 module.exports = Coinbase
