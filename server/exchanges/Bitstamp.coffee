@@ -22,5 +22,10 @@ class Bitstamp
         lastBid = bid
         lastAsk = ask
         cb NAME, {bid: lastBid, ask: lastAsk}
+    metadata = {}
+    metadata[NAME] = {
+      image: 'http://static.bitcointicker.matthisp.com/bitstamp.png'
+    }
+    return metadata
 
 module.exports = Bitstamp

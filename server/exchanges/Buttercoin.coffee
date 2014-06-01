@@ -20,6 +20,11 @@ class Buttercoin
   @start = (callback) ->
     cb = callback
     restartWebSocket()
+    metadata = {}
+    metadata[NAME] = {
+      image: 'http://static.bitcointicker.matthisp.com/buttercoin.png'
+    }
+    return metadata
 
 
   restartWebSocket = ->

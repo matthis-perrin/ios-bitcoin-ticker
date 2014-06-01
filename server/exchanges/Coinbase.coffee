@@ -16,6 +16,11 @@ class Coinbase
     cb = callback
     startGrabber 'buy', 'bid'
     startGrabber 'sell', 'ask'
+    metadata = {}
+    metadata[NAME] = {
+      image: 'http://static.bitcointicker.matthisp.com/coinbase.png'
+    }
+    return metadata
 
   startGrabber = (type, property) ->
     grabPrice type, property

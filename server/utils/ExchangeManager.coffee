@@ -1,6 +1,7 @@
 class ExchangeManager
 
   @data = {}
+  @metadata = []
   
 
   wsManager = null
@@ -15,6 +16,9 @@ class ExchangeManager
     toSend = {}
     toSend[exchangeName] = @data[exchangeName]
     wsManager.broadcast toSend
+
+
+  @addExchangeMetaData = (metadata) -> @metadata.push metadata
 
 
 module.exports = ExchangeManager

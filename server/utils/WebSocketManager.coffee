@@ -46,6 +46,7 @@ class WebSocketManager
       @removeWebSocket ws
 
   sendWelcomeMessage = (ws) ->
+    send ws, JSON.stringify exchangeManager.metadata if exchangeManager
     send ws, JSON.stringify exchangeManager.data if exchangeManager
 
   logInfo = () ->

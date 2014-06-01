@@ -21,12 +21,10 @@ WebSocketManager.init ExchangeManager
 ExchangeManager.init WebSocketManager
 WebSocketManager.start()
 
-exchangeCallback = (exchange, data) ->
-  ExchangeManager.exchangeEvent exchange, data
-
-Buttercoin.start exchangeCallback
-Bitstamp.start exchangeCallback
-Coinbase.start exchangeCallback
+exchanges = [Buttercoin, Bitstamp, Coinbase]
+for exchange in exchanges
+  ExchangeManager.addExchangeMetaData exchange.start (exchange, data) ->
+    ExchangeManager.exchangeEvent exchange, data
 
 wsServer.on 'connection', (ws) ->
   WebSocketManager.addWebSocket ws
