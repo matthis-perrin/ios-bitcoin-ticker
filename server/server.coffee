@@ -1,7 +1,12 @@
-port = 4001
+argv = require('minimist')(process.argv.slice(2))
+
+host = argv.h or '0.0.0.0'
+port = argv.p or 4001
 
 WebSocketServer = require('ws').Server
-wsServer = new WebSocketServer {port: port}
+wsServer = new WebSocketServer
+  host: host
+  port: port
 
 WebSocketManager = require('./utils/WebSocketManager')
 ExchangeManager = require('./utils/ExchangeManager')
