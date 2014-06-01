@@ -50,9 +50,10 @@ class WebSocketManager
     send ws, JSON.stringify exchangeManager.data if exchangeManager
 
   logInfo = () ->
-    process.stdout.clearLine()
-    process.stdout.cursorTo(0)
-    process.stdout.write '>> ' + webSocketList.length + ' client' + (if webSocketList.length > 1 then 's' else '') + ' connected'
+    if process.env.DEBUG isnt 'no-debug'
+      process.stdout.clearLine()
+      process.stdout.cursorTo(0)
+      process.stdout.write '>> ' + webSocketList.length + ' client' + (if webSocketList.length > 1 then 's' else '') + ' connected'
 
 
 
