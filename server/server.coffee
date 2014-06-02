@@ -8,14 +8,14 @@ wsServer = new WebSocketServer
   host: host
   port: port
 
-WebSocketManager = require('./utils/WebSocketManager')
-ExchangeManager = require('./utils/ExchangeManager')
-Buttercoin = require('./exchanges/Buttercoin')
-Bitstamp = require('./exchanges/Bitstamp')
-Coinbase = require('./exchanges/Coinbase')
+Logger =           require './utils/Logger'
+WebSocketManager = require './utils/WebSocketManager'
+ExchangeManager =  require './utils/ExchangeManager'
+Buttercoin =       require './exchanges/Buttercoin'
+Bitstamp =         require './exchanges/Bitstamp'
+Coinbase =         require './exchanges/Coinbase'
 
-console.log 'Server started'
-console.log '>> websocket listenning on port ' + port
+Logger.info 'Starting server on port ' + port + '.'
 
 WebSocketManager.init ExchangeManager
 ExchangeManager.init WebSocketManager
@@ -25,6 +25,8 @@ exchanges = [Buttercoin, Bitstamp, Coinbase]
 for exchange in exchanges
   ExchangeManager.addExchangeMetaData exchange.start (exchange, data) ->
     ExchangeManager.exchangeEvent exchange, data
+
+Logger.info 'Server started. Waiting for connections.'
 
 wsServer.on 'connection', (ws) ->
   WebSocketManager.addWebSocket ws

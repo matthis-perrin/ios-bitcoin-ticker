@@ -1,3 +1,5 @@
+Logger = require './Logger'
+
 class ExchangeManager
 
   @data = {}
@@ -18,7 +20,9 @@ class ExchangeManager
     wsManager.broadcast toSend
 
 
-  @addExchangeMetaData = (metadata) -> @metadata.push metadata
+  @addExchangeMetaData = (metadata) ->
+    Logger.info metadata.name + ' exchange started.'
+    @metadata.push metadata
 
 
 module.exports = ExchangeManager

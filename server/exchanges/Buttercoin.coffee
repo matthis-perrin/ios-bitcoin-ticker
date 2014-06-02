@@ -1,4 +1,4 @@
-
+Logger = require '../utils/Logger'
 process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '0'
 WebSocket = require 'ws'
 
@@ -20,27 +20,39 @@ class Buttercoin
   @start = (callback) ->
     cb = callback
     restartWebSocket()
-    metadata = {}
-    metadata[NAME] = {
+    return {
+      name: NAME
       image: 'http://static.bitcointicker.matthisp.com/buttercoin.png'
     }
-    return metadata
 
 
   restartWebSocket = ->
-    ws.close() if ws?
-    clearInterval wsLoop if wsLoop?
+    try
+      ws.close() if ws?
+      clearInterval wsLoop if wsLoop?
+      ws = new WebSocket 'wss://api.buttercoin.com/api/v1/websocket', { protocolVersion: 13, origin: 'https://www.buttercoin.com' }
 
-    ws = new WebSocket 'wss://api.buttercoin.com/api/v1/websocket', { protocolVersion: 13, origin: 'https://www.buttercoin.com' }
+      ws.on 'message', (data) ->
+        handleMessage data
 
-    ws.on 'message', (data) ->
-      handleMessage data
-
-    ws.on 'open', () ->
-      sendMessage getTickerMessage
-      wsLoop = setInterval () ->
+      ws.on 'open', () ->
         sendMessage getTickerMessage
-      , INTERVAL
+        wsLoop = setInterval () ->
+          sendMessage getTickerMessage
+        , INTERVAL
+
+      ws.on 'close', () ->
+        Logger.error 'Buttercoin websocket closed'
+        restartWebSocket()
+
+      ws.on 'error', (err) ->
+        Logger.error 'Buttercoin error\n' + err
+        restartWebSocket()
+    catch err
+      Logger.error 'Buttercoin error\n' + err
+      restartWebSocket()
+
+
 
   sendMessage = (message) ->
       try
