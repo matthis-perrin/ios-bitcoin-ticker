@@ -14,6 +14,7 @@
 }
 
 static NSMutableDictionary* exchanges;
+static void (^metaDataBlock)(NSDictionary*);
 
 
 - (void) start {
@@ -29,18 +30,28 @@ static NSMutableDictionary* exchanges;
 }
 
 
-+ (void) watchExchange:(NSString*)exchangeName block:(void (^)(Ticker*))block {
-    NSLog(@"%@", exchangeName);
++ (void) registerForExchange:(NSString*)exchangeName block:(void (^)(Ticker*))block {
     if (!exchanges) {
         exchanges = [[NSMutableDictionary alloc] init];
     }
     [exchanges setValue:block forKey:exchangeName];
 }
 
-+ (void) sendTicker:(Ticker*)ticker forExchange:(NSString*)exchangeName {
++ (void) registerForMetaData:(void (^)(NSDictionary*))block {
+    metaDataBlock = block;
+}
+
+
++ (void) broadcastTicker:(Ticker*)ticker forExchange:(NSString*)exchangeName {
     void (^userBlock)(Ticker*) = [exchanges valueForKey:exchangeName];
     if (userBlock != nil) {
         userBlock(ticker);
+    }
+}
+
++ (void) broadCastMetaData:(NSDictionary*)metaData {
+    if (metaDataBlock != nil) {
+        metaDataBlock(metaData);
     }
 }
 
@@ -72,16 +83,12 @@ static NSMutableDictionary* exchanges;
                 NSString* bid = [exchangeData objectForKey:@"bid"];
                 NSString* ask = [exchangeData objectForKey:@"ask"];
                 Ticker* ticker = [[Ticker alloc] initWithDate:[[NSDate alloc] initWithTimeIntervalSince1970:timestamp] withBid:bid withAsk:ask];
-                [ExchangeManager sendTicker:ticker forExchange:exchangeName];
+                [ExchangeManager broadcastTicker:ticker forExchange:exchangeName];
             }
         }
-//        NSString *bid = [[json objectForKey:@"bid"] objectForKey:@"amount"];
-//        NSString *ask = [[json objectForKey:@"ask"] objectForKey:@"amount"];
-//        if (![lastBid isEqualToString:bid] || ![lastAsk isEqualToString:ask]) {
-//            lastBid = bid;
-//            lastAsk = ask;
-//            userBlock([[Ticker alloc] initWithDate:[NSDate date] withBid:bid withAsk:ask]);
-//        }
+        else if ([messageType isEqualToString:@"METADATA"]) {
+            [ExchangeManager broadCastMetaData:messageData];
+        }
     }
 }
 

@@ -10,19 +10,17 @@
 
 @implementation Exchange
 
-@synthesize type;
 @synthesize name;
 @synthesize imageName;
 
 
 - (id) init {
-    return [self initWithType:BUTTERCOIN name:@"" image:@""];
+    return [self initWithName:@"" image:@""];
 }
 
-- (id) initWithType:(ExchangeType)_type name:(NSString*)_name image:(NSString*)_imageName {
+- (id) initWithName:(NSString*)_name image:(NSString*)_imageName {
     self = [super init];
     if (self) {
-        type = _type;
         name = _name;
         imageName = _imageName;
     }

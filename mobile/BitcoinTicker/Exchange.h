@@ -8,20 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-typedef enum {
-    BUTTERCOIN,
-    BITSTAMP,
-    COINBASE
-} ExchangeType;
-
 @interface Exchange : NSObject
 
-@property ExchangeType type;
 @property NSString* name;
 @property NSString* imageName;
 @property float topOffset;
 @property float bottomOffset;
 
-- (id) initWithType:(ExchangeType)_type name:(NSString*)_name image:(NSString*)_imageName;
+- (id) initWithName:(NSString*)_name image:(NSString*)_imageName;
 
 @end

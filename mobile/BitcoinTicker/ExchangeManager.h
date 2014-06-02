@@ -15,7 +15,8 @@
 
 - (void) start;
 
-+ (void) watchExchange:(NSString*)exchangeName block:(void (^)(Ticker*))block;
-+ (void) sendTicker:(Ticker*)ticker forExchange:(NSString*)exchangeName;
++ (void) registerForExchange:(NSString*)exchangeName block:(void (^)(Ticker*))block;
++ (void) broadcastTicker:(Ticker*)ticker forExchange:(NSString*)exchangeName;
++ (void) registerForMetaData:(void (^)(NSDictionary*))block;
 
 @end

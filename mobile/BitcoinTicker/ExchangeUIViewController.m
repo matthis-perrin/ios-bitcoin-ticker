@@ -39,7 +39,7 @@
 {
     [super viewDidLoad];
     
-    [ExchangeManager watchExchange:exchange.name block:^(Ticker* ticker) {
+    [ExchangeManager registerForExchange:exchange.name block:^(Ticker* ticker) {
         [self updateWithTicker:ticker];
     }];
 
