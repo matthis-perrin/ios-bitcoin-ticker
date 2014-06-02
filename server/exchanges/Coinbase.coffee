@@ -18,8 +18,10 @@ class Coinbase
     startGrabber 'buy', 'bid'
     startGrabber 'sell', 'ask'
     return {
-      name: NAME
-      image: 'http://static.bitcointicker.matthisp.com/coinbase.png'
+      name: NAME,
+      metadata: {
+        image: 'http://static.bitcointicker.matthisp.com/coinbase.png'
+      }
     }
 
   startGrabber = (type, property) ->

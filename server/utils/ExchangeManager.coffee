@@ -3,7 +3,7 @@ Logger = require './Logger'
 class ExchangeManager
 
   @data = {}
-  @metadata = []
+  @metadata = {}
   
 
   wsManager = null
@@ -15,14 +15,17 @@ class ExchangeManager
 
   @exchangeEvent = (exchangeName, data) ->
     @data[exchangeName] = data
-    toSend = {}
-    toSend[exchangeName] = @data[exchangeName]
+    toSend = {
+      type: 'PRICE'
+      data: {}
+    }
+    toSend.data[exchangeName] = data
     wsManager.broadcast toSend
 
 
-  @addExchangeMetaData = (metadata) ->
-    Logger.info metadata.name + ' exchange started.'
-    @metadata.push metadata
+  @addExchangeMetaData = (exchangeName, metadata) ->
+    Logger.info exchangeName + ' exchange started.'
+    @metadata[exchangeName] = metadata
 
 
 module.exports = ExchangeManager

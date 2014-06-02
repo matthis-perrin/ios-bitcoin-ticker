@@ -21,8 +21,10 @@ class Buttercoin
     cb = callback
     restartWebSocket()
     return {
-      name: NAME
-      image: 'http://static.bitcointicker.matthisp.com/buttercoin.png'
+      name: NAME,
+      metadata: {
+        image: 'http://static.bitcointicker.matthisp.com/buttercoin.png'
+      }
     }
 
 

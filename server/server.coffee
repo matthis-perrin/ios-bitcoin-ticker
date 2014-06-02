@@ -23,8 +23,9 @@ WebSocketManager.start()
 
 exchanges = [Buttercoin, Bitstamp, Coinbase]
 for exchange in exchanges
-  ExchangeManager.addExchangeMetaData exchange.start (exchange, data) ->
+  exchangeInfo = exchange.start (exchange, data) ->
     ExchangeManager.exchangeEvent exchange, data
+  ExchangeManager.addExchangeMetaData exchangeInfo.name, exchangeInfo.metadata
 
 Logger.info 'Server started. Waiting for connections.'
 

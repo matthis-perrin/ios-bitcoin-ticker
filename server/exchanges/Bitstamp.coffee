@@ -25,8 +25,10 @@ class Bitstamp
           lastAsk = ask
           cb NAME, {bid: lastBid, ask: lastAsk, time: new Date().getTime()}
       return {
-        name: NAME
-        image: 'http://static.bitcointicker.matthisp.com/bitstamp.png'
+        name: NAME,
+        metadata: {
+          image: 'http://static.bitcointicker.matthisp.com/bitstamp.png'
+        }
       }
     catch err
       Logger.error 'Bitstamp error\n' + err
