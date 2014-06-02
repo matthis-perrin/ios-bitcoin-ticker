@@ -23,7 +23,7 @@ class Bitstamp
         if bid isnt lastBid or ask isnt lastAsk
           lastBid = bid
           lastAsk = ask
-          cb NAME, {bid: lastBid, ask: lastAsk}
+          cb NAME, {bid: lastBid, ask: lastAsk, time: new Date().getTime()}
       return {
         name: NAME
         image: 'http://static.bitcointicker.matthisp.com/bitstamp.png'

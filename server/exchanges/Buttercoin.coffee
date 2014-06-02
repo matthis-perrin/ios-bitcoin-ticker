@@ -74,7 +74,7 @@ class Buttercoin
       if result.data.bid isnt lastBid || result.data.ask isnt lastAsk
         lastBid = result.data.bid
         lastAsk = result.data.ask
-        cb NAME, {bid: lastBid, ask: lastAsk}
+        cb NAME, {bid: lastBid, ask: lastAsk, time: new Date().getTime()}
 
 
 module.exports = Buttercoin

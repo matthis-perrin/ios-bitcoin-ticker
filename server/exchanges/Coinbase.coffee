@@ -41,7 +41,7 @@ class Coinbase
           if (bid? and bid isnt lastBid) or (ask? and ask isnt lastAsk)
             lastBid = bid if bid?
             lastAsk = ask if ask?
-            cb NAME, {bid: lastBid, ask: lastAsk}
+            cb NAME, {bid: lastBid, ask: lastAsk, time: new Date().getTime()}
       .on 'error', (err) ->
         Logger.error 'Coinbase error\n' + err
     catch err
