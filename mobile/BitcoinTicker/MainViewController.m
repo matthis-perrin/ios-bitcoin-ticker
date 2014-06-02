@@ -31,6 +31,11 @@
     UIScrollView* scrollView = [[UIScrollView alloc] initWithFrame:self.view.frame];
     scrollView.backgroundColor = [UIColor colorWithWhite:238.0f/255.0f alpha:1.0f];
     
+    UIActivityIndicatorView* activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    activityIndicator.center = scrollView.center;
+    [activityIndicator startAnimating];
+    [scrollView addSubview:activityIndicator];
+    
     [ExchangeManager registerForMetaData:^(NSDictionary* metadata) {
         int exchangeCount = 0;
         
@@ -51,8 +56,10 @@
         }
         
         scrollView.contentSize = CGSizeMake(width, start + exchangeCount * height + margin);
-        [self.view addSubview:scrollView];
+        [activityIndicator removeFromSuperview];
     }];
+    
+    [self.view addSubview:scrollView];
 }
 
 - (void)didReceiveMemoryWarning

@@ -11,18 +11,18 @@
 @implementation Exchange
 
 @synthesize name;
-@synthesize imageName;
+@synthesize imageUrl;
 
 
 - (id) init {
     return [self initWithName:@"" image:@""];
 }
 
-- (id) initWithName:(NSString*)_name image:(NSString*)_imageName {
+- (id) initWithName:(NSString*)_name image:(NSString*)_imageUrl {
     self = [super init];
     if (self) {
         name = _name;
-        imageName = _imageName;
+        imageUrl = _imageUrl;
     }
     return self;
 }

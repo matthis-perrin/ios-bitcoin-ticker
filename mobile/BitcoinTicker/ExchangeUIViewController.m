@@ -9,6 +9,7 @@
 #import "ExchangeUIViewController.h"
 #import "DateUtils.h"
 #import "ExchangeManager.h"
+#import "ImageCache.h"
 
 @interface ExchangeUIViewController ()
 
@@ -45,8 +46,10 @@
 
     tileView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tile.png"]];
     tileView.contentMode = UIViewContentModeCenter;
-
-    imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:exchange.imageName]];
+    
+    UIImage* exchangeImage = [ImageCache getImageWithUrl:exchange.imageUrl];
+    UIImage* exchangeImageRetina = [UIImage imageWithCGImage:exchangeImage.CGImage scale:2 orientation:exchangeImage.imageOrientation];
+    imageView = [[UIImageView alloc] initWithImage:exchangeImageRetina];
     imageView.contentMode = UIViewContentModeCenter;
 
     priceLabel = [[UILabel alloc] init];

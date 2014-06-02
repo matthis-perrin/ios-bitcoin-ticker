@@ -11,10 +11,10 @@
 @interface Exchange : NSObject
 
 @property NSString* name;
-@property NSString* imageName;
+@property NSString* imageUrl;
 @property float topOffset;
 @property float bottomOffset;
 
-- (id) initWithName:(NSString*)_name image:(NSString*)_imageName;
+- (id) initWithName:(NSString*)_name image:(NSString*)_imageUrl;
 
 @end
