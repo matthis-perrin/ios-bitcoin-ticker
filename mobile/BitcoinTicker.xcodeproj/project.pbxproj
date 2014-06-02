@@ -76,6 +76,8 @@
 		5BC48E720F4E4E6E82EFDDBB /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		B54FB3FB1932F67B0052FEF2 /* Ticker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ticker.h; sourceTree = "<group>"; };
 		B54FB3FC1932F67B0052FEF2 /* Ticker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ticker.m; sourceTree = "<group>"; };
+		B56AC79B193C4F2200D3B726 /* ImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCache.h; sourceTree = "<group>"; };
+		B56AC79C193C4F2200D3B726 /* ImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCache.m; sourceTree = "<group>"; };
 		DFDE52C150BD4636992DD1AF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -228,6 +230,8 @@
 			children = (
 				2DDA187E19344E8100562CB3 /* DateUtils.h */,
 				2DDA187F19344E8100562CB3 /* DateUtils.m */,
+				B56AC79B193C4F2200D3B726 /* ImageCache.h */,
+				B56AC79C193C4F2200D3B726 /* ImageCache.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -374,6 +378,7 @@
 				2DA0306F1932D5E20023F67F /* ExchangeUIViewController.m in Sources */,
 				2DA0308219333B910023F67F /* ExchangeManager.m in Sources */,
 				2D3CCF691932C7BA007CD5EC /* AppDelegate.m in Sources */,
+				B56AC79D193C4F2200D3B726 /* ImageCache.m in Sources */,
 				2D3CCF651932C7BA007CD5EC /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
