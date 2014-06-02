@@ -7,8 +7,8 @@
 //
 
 #import "ExchangeUIViewController.h"
-#import "ExchangeManager.h"
 #import "DateUtils.h"
+#import "ExchangeManager.h"
 
 @interface ExchangeUIViewController ()
 
@@ -38,6 +38,10 @@
 - (void) viewDidLoad
 {
     [super viewDidLoad];
+    
+    [ExchangeManager watchExchange:exchange.name block:^(Ticker* ticker) {
+        [self updateWithTicker:ticker];
+    }];
 
     tileView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tile.png"]];
     tileView.contentMode = UIViewContentModeCenter;
@@ -64,11 +68,11 @@
 
     [self updateConstraints];
 
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        [ExchangeManager startExchange:exchange.type block:^(Ticker* ticker) {
-            [self updateWithTicker:ticker];
-        }];
-    });
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//        [ExchangeManager startExchange:exchange.type block:^(Ticker* ticker) {
+//            [self updateWithTicker:ticker];
+//        }];
+//    });
 
     [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateDate) userInfo:nil repeats:YES];
 }

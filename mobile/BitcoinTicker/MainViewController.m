@@ -7,25 +7,26 @@
 //
 
 #import "MainViewController.h"
+#import "ExchangeManager.h"
 #import "ExchangeUIViewController.h"
-#import "Bitstamp.h"
-#import "Buttercoin.h"
-#import "Coinbase.h"
 
 @interface MainViewController ()
 
 @end
 
-@implementation MainViewController
-{
-    Bitstamp *bitstamp;
-    Buttercoin *buttercoin;
-    Coinbase *coinbase;
+@implementation MainViewController {
+    
+    ExchangeManager* exchangeManager;
+    
 }
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    exchangeManager = [[ExchangeManager alloc] init];
+    [exchangeManager start];
     
     UIScrollView* scrollView = [[UIScrollView alloc] initWithFrame:self.view.frame];
     scrollView.backgroundColor = [UIColor colorWithWhite:238.0f/255.0f alpha:1.0f];
@@ -36,9 +37,9 @@
     int height = 210;
     
     NSArray* exchangeArray = @[
-       [[Exchange alloc] initWithType:BUTTERCOIN name:@"Buttercoin" image:@"buttercoin.png"],
-       [[Exchange alloc] initWithType:BITSTAMP name:@"Bitstamp" image:@"bitstamp.png"],
-       [[Exchange alloc] initWithType:COINBASE name:@"Coinbase" image:@"coinbase.png"],
+       [[Exchange alloc] initWithType:BUTTERCOIN name:@"BUTTERCOIN" image:@"buttercoin.png"],
+       [[Exchange alloc] initWithType:BITSTAMP name:@"BITSTAMP" image:@"bitstamp.png"],
+       [[Exchange alloc] initWithType:COINBASE name:@"COINBASE" image:@"coinbase.png"],
     ];
     
     for (int i = 0; i < exchangeArray.count; i++) {

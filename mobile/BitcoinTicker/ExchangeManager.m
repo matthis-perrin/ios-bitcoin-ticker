@@ -7,28 +7,82 @@
 //
 
 #import "ExchangeManager.h"
-#import "Buttercoin.h"
-#import "Bitstamp.h"
-#import "Coinbase.h"
 
-@implementation ExchangeManager
+@implementation ExchangeManager {
+    NSMutableURLRequest* request;
+    SRWebSocket* socket;
+}
 
-static NSMutableArray* exchanges;
+static NSMutableDictionary* exchanges;
 
-+ (void) startExchange:(ExchangeType)type block:(void (^)(Ticker *))block {
+
+- (void) start {
+    NSString* url = @"ws://198.23.133.167:4001";
+    request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
+    [self startWebSocket];
+}
+
+- (void) startWebSocket {
+    socket = [[SRWebSocket alloc] initWithURLRequest:request];
+    socket.delegate = self;
+    [socket open];
+}
+
+
++ (void) watchExchange:(NSString*)exchangeName block:(void (^)(Ticker*))block {
+    NSLog(@"%@", exchangeName);
     if (!exchanges) {
-        exchanges = [[NSMutableArray alloc] init];
+        exchanges = [[NSMutableDictionary alloc] init];
     }
-    NSObject* exchange = NULL;
-    
-    switch (type) {
-        case BUTTERCOIN: exchange = [[Buttercoin alloc] initWithBlock:block]; break;
-        case BITSTAMP: exchange = [[Bitstamp alloc] initWithBlock:block]; break;
-        case COINBASE: exchange = [[Coinbase alloc] initWithBlock:block]; break;
-        default: break;
+    [exchanges setValue:block forKey:exchangeName];
+}
+
++ (void) sendTicker:(Ticker*)ticker forExchange:(NSString*)exchangeName {
+    void (^userBlock)(Ticker*) = [exchanges valueForKey:exchangeName];
+    if (userBlock != nil) {
+        userBlock(ticker);
     }
+}
+
+
+- (void) webSocketDidOpen:(SRWebSocket*)webSocket {
+}
+
+- (void) webSocket:(SRWebSocket*)webSocket didFailWithError:(NSError*)error {
+    [self startWebSocket];
+}
+
+- (void) webSocket:(SRWebSocket*)webSocket didCloseWithCode:(NSInteger)code reason:(NSString*)reason wasClean:(BOOL)wasClean {
+    [self startWebSocket];
+}
+
+- (void) webSocket:(SRWebSocket*)webSocket didReceiveMessage:(id)message
+{
+    NSData* data = [message dataUsingEncoding:NSUTF8StringEncoding];
+    NSDictionary* json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
     
-    [exchanges addObject:exchange];
+    NSString* messageType = [json objectForKey:@"type"];
+    NSDictionary* messageData = [json objectForKey:@"data"];
+    
+    if (messageType != nil) {
+        if ([messageType isEqualToString:@"PRICE"]) {
+            for (NSString* exchangeName in messageData) {
+                NSDictionary* exchangeData = [messageData objectForKey:exchangeName];
+                NSTimeInterval timestamp = [[exchangeData objectForKey:@"time"] doubleValue] / 1000.0;
+                NSString* bid = [exchangeData objectForKey:@"bid"];
+                NSString* ask = [exchangeData objectForKey:@"ask"];
+                Ticker* ticker = [[Ticker alloc] initWithDate:[[NSDate alloc] initWithTimeIntervalSince1970:timestamp] withBid:bid withAsk:ask];
+                [ExchangeManager sendTicker:ticker forExchange:exchangeName];
+            }
+        }
+//        NSString *bid = [[json objectForKey:@"bid"] objectForKey:@"amount"];
+//        NSString *ask = [[json objectForKey:@"ask"] objectForKey:@"amount"];
+//        if (![lastBid isEqualToString:bid] || ![lastAsk isEqualToString:ask]) {
+//            lastBid = bid;
+//            lastAsk = ask;
+//            userBlock([[Ticker alloc] initWithDate:[NSDate date] withBid:bid withAsk:ask]);
+//        }
+    }
 }
 
 @end

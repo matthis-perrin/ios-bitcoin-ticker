@@ -7,11 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <SRWebSocket.h>
 #import "Ticker.h"
 #import "Exchange.h"
 
-@interface ExchangeManager : NSObject
+@interface ExchangeManager : NSObject <SRWebSocketDelegate>
 
-+ (void) startExchange:(ExchangeType)type block:(void (^)(Ticker *))block;
+- (void) start;
+
++ (void) watchExchange:(NSString*)exchangeName block:(void (^)(Ticker*))block;
++ (void) sendTicker:(Ticker*)ticker forExchange:(NSString*)exchangeName;
 
 @end
