@@ -37,13 +37,16 @@ class Coinbase
         res.on 'data', (chunk) ->
           data += chunk
         res.on 'end', () ->
-          value = JSON.parse(data).subtotal.amount
-          bid = if property is 'bid' then parseFloat(value) else null
-          ask = if property is 'ask' then parseFloat(value) else null
-          if (bid? and bid isnt lastBid) or (ask? and ask isnt lastAsk)
-            lastBid = bid if bid?
-            lastAsk = ask if ask?
-            cb NAME, {bid: lastBid, ask: lastAsk, time: new Date().getTime()}
+          try
+            value = JSON.parse(data).subtotal.amount
+            bid = if property is 'bid' then parseFloat(value) else null
+            ask = if property is 'ask' then parseFloat(value) else null
+            if (bid? and bid isnt lastBid) or (ask? and ask isnt lastAsk)
+              lastBid = bid if bid?
+              lastAsk = ask if ask?
+              cb NAME, {bid: lastBid, ask: lastAsk, time: new Date().getTime()}
+          catch err
+            Logger.error 'Coinbase error\n' + err
       .on 'error', (err) ->
         Logger.error 'Coinbase error\n' + err
     catch err
