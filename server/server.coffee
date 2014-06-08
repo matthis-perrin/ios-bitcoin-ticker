@@ -19,7 +19,6 @@ Logger.info 'Starting server on port ' + port + '.'
 
 WebSocketManager.init ExchangeManager
 ExchangeManager.init WebSocketManager
-WebSocketManager.start()
 
 exchanges = [Buttercoin, Bitstamp, Coinbase]
 for exchange in exchanges

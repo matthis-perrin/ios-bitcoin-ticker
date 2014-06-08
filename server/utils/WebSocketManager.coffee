@@ -4,7 +4,6 @@ class WebSocketManager
 
   # Internal property
   webSocketList = []
-  pingLoopInterval = null
   exchangeManager = null
 
 
@@ -18,6 +17,11 @@ class WebSocketManager
     sendWelcomeMessage ws
     ws.on 'close', => @removeWebSocket ws
     ws.on 'error', => @removeWebSocket ws
+    ws.on 'message', (data) =>
+      try
+        ws.send 'PONG' if data is 'PING'
+      catch e
+        @removeWebSocket ws
     Logger.info '>> Add a client (' + webSocketList.length + ')'
 
   @removeWebSocket = (ws) ->
@@ -31,10 +35,6 @@ class WebSocketManager
   @broadcast = (data) ->
     for ws in webSocketList
       send ws, JSON.stringify data
-
-  @start = () ->
-    clearInterval pingLoopInterval if pingLoopInterval?
-    pingLoopInterval = setInterval @broadcast, 30000, "PING"
 
 
   # Internal methods
