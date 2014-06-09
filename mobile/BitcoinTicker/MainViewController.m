@@ -47,9 +47,10 @@
         for (NSString* exchangeName in metadata) {
             NSDictionary* exchangeMetadata = [metadata objectForKey:exchangeName];
             Exchange* exchange = [[Exchange alloc] initWithName:exchangeName image:[exchangeMetadata objectForKey:@"image"]];
+            int exchangeIndex = [[exchangeMetadata objectForKey:@"index"] intValue];
             
             ExchangeUIViewController* exchangeViewController = [[ExchangeUIViewController alloc] initWithExchange:exchange];
-            exchangeViewController.view.frame = CGRectMake(0, start + exchangeCount * height, width, height);
+            exchangeViewController.view.frame = CGRectMake(0, start + exchangeIndex * height, width, height);
             [scrollView addSubview:exchangeViewController.view];
             
             exchangeCount++;

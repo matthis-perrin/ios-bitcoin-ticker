@@ -49,7 +49,7 @@ static void (^metaDataBlock)(NSDictionary*);
     }
 }
 
-+ (void) broadCastMetaData:(NSDictionary*)metaData {
++ (void) broadcastMetaData:(NSDictionary*)metaData {
     if (metaDataBlock != nil) {
         metaDataBlock(metaData);
     }
@@ -87,7 +87,7 @@ static void (^metaDataBlock)(NSDictionary*);
             }
         }
         else if ([messageType isEqualToString:@"METADATA"]) {
-            [ExchangeManager broadCastMetaData:messageData];
+            [ExchangeManager broadcastMetaData:messageData];
         }
     }
 }
