@@ -23,8 +23,10 @@ class ExchangeManager
     wsManager.broadcast toSend
 
 
+  counter = 0
   @addExchangeMetaData = (exchangeName, metadata) ->
     Logger.info exchangeName + ' exchange started.'
+    metadata.index = counter++
     @metadata[exchangeName] = metadata
 
 
