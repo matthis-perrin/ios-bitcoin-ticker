@@ -32,7 +32,7 @@ class Buttercoin
     try
       ws.close() if ws?
       clearInterval wsLoop if wsLoop?
-      ws = new WebSocket 'wss://api.buttercoin.com/api/v1/websocket', { protocolVersion: 13, origin: 'https://www.buttercoin.com' }
+      ws = new WebSocket 'wss://wsio.buttercoin.com/api/v1/websocket', { protocolVersion: 13, origin: 'https://www.buttercoin.com' }
 
       ws.on 'message', (data) ->
         handleMessage data
